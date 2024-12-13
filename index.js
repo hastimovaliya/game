@@ -58,6 +58,9 @@ parentdiv.addEventListener('click' , (event) => {
     let curcard = event.target;
     if(curcard.id === 'card-selection') return false;
     clickcount++;
+    if (curcard.parentNode.classList.contains('card_selected') ) {
+        reset_game();
+    }
     
     if(clickcount <= 2)
     {

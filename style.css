@@ -1,15 +1,16 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-:root{
-    --bg-main:#464646;
-    --bg-card:#2D2727;
+
+:root {
+    --bg-main: #464646;
+    --bg-card: #2D2727;
     --border-color: #efc745;
 }
 
-body{
+body {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,33 +18,28 @@ body{
     gap: 5rem;
     height: 100vh;
     background-color: var(--bg-main);
-
 }
-h1{
+
+h1 {
     color: #fff;
     font-family: "Lexend Deca Light";
     font-size: 4rem;
 }
 
-span{
+span {
     color: var(--border-color);
 }
-#card-selection
-{
+
+#card-selection {
     display: grid;
-    grid-template-columns: repeat(4 , 1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-gap: 2rem;
 }
-.card
- {
-    
-   
+
+.card {
     position: relative;
-    transition: all .4s linear;
+    transition: all 0.4s linear;
     transform-style: preserve-3d;
-    
-
-
 }
 
 .card,
@@ -53,31 +49,22 @@ span{
     width: 7rem;
 }
 
- .back_card,
-.front_card
-{
+.back_card,
+.front_card {
     position: absolute;
     backface-visibility: hidden;
 }
 
-/*
-.card_match { 
-    border: .2rem solid purple;
-} */
-
 .front_card {
     background: var(--border-color);
     background-size: contain;
-    border-radius: .6rem;
+    border-radius: 0.6rem;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     padding: 2rem;
-    
 }
 
-.back_card
-{
+.back_card {
     transform: rotateY(180deg);
-  
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
@@ -87,8 +74,31 @@ span{
 
 .card_selected {
     transform: rotateY(180deg);
-}  
+}
 
 .card_match .front_card {
     background-color: var(--bg-card);
+}
+
+/* Responsive styles for mobile */
+@media (max-width: 768px) {
+    #card-selection {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns for smaller screens */
+        grid-gap: 1rem; /* Smaller gap for better spacing */
+    }
+
+    .card,
+    .back_card,
+    .front_card {
+        height: 5rem; /* Adjust card size */
+        width: 5rem;
+    }
+
+    h1 {
+        font-size: 3rem; /* Adjust heading size for mobile */
+    }
+
+    body {
+        gap: 3rem; /* Reduce gap between elements */
+    }
 }
